@@ -1,9 +1,9 @@
-#ifndef _RESALTATOBJECTESELECCIONAT_H
-#define _RESALTATOBJECTESELECCIONAT_H
+#ifndef _DRAWBOUNDINGBOX_H
+#define _DRAWBOUNDINGBOX_H
 
 #include "plugin.h" 
 
-class ResaltatObjecteSeleccionat: public QObject, public Plugin
+class DrawBoundingBox: public QObject, public Plugin
 {
 	Q_OBJECT
 	Q_PLUGIN_METADATA(IID "Plugin") 
@@ -21,6 +21,7 @@ class ResaltatObjecteSeleccionat: public QObject, public Plugin
     GLuint VAOcub;
     GLuint VBOvertexs;
     GLuint VBOcolors;
+    
 };
 
 #endif

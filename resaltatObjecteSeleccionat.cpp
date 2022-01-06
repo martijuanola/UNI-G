@@ -1,7 +1,7 @@
-#include "resaltatObjecteSeleccionat.h"
+#include "drawBoundingBox.h"
 #include "glwidget.h"
 
-void ResaltatObjecteSeleccionat::onPluginLoad()
+void DrawBoundingBox::onPluginLoad()
 {
 	QString vs_src = 
 		"#version 330 core\n"
@@ -47,7 +47,7 @@ void ResaltatObjecteSeleccionat::onPluginLoad()
     crearBuffers();
 }
 
-void ResaltatObjecteSeleccionat::crearBuffers() {
+void DrawBoundingBox::crearBuffers() {
 	GLfloat vertexs[]={
                 0,0,0,
                 0,0,1,
@@ -158,7 +158,7 @@ void ResaltatObjecteSeleccionat::crearBuffers() {
 }
 
 
-void ResaltatObjecteSeleccionat::postFrame()
+void DrawBoundingBox::postFrame()
 {
 	GLWidget& g = *glwidget();
     g.makeCurrent();

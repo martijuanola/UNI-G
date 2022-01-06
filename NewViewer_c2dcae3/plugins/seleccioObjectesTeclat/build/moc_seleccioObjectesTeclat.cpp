@@ -1,17 +1,17 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'resaltatObjecteSeleccionat.h'
+** Meta object code from reading C++ file 'seleccioObjectesTeclat.h'
 **
 ** Created by: The Qt Meta Object Compiler version 67 (Qt 5.12.8)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../resaltatObjecteSeleccionat.h"
+#include "../seleccioObjectesTeclat.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #include <QtCore/qplugin.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'resaltatObjecteSeleccionat.h' doesn't include <QObject>."
+#error "The header file 'seleccioObjectesTeclat.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
 #error "This file was generated using the moc from 5.12.8. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -21,25 +21,25 @@
 QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
-struct qt_meta_stringdata_ResaltatObjecteSeleccionat_t {
+struct qt_meta_stringdata_SeleccioObjectesTeclat_t {
     QByteArrayData data[1];
-    char stringdata0[27];
+    char stringdata0[23];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_ResaltatObjecteSeleccionat_t, stringdata0) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_SeleccioObjectesTeclat_t, stringdata0) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
-static const qt_meta_stringdata_ResaltatObjecteSeleccionat_t qt_meta_stringdata_ResaltatObjecteSeleccionat = {
+static const qt_meta_stringdata_SeleccioObjectesTeclat_t qt_meta_stringdata_SeleccioObjectesTeclat = {
     {
-QT_MOC_LITERAL(0, 0, 26) // "ResaltatObjecteSeleccionat"
+QT_MOC_LITERAL(0, 0, 22) // "SeleccioObjectesTeclat"
 
     },
-    "ResaltatObjecteSeleccionat"
+    "SeleccioObjectesTeclat"
 };
 #undef QT_MOC_LITERAL
 
-static const uint qt_meta_data_ResaltatObjecteSeleccionat[] = {
+static const uint qt_meta_data_SeleccioObjectesTeclat[] = {
 
  // content:
        8,       // revision
@@ -55,7 +55,7 @@ static const uint qt_meta_data_ResaltatObjecteSeleccionat[] = {
        0        // eod
 };
 
-void ResaltatObjecteSeleccionat::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void SeleccioObjectesTeclat::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     Q_UNUSED(_o);
     Q_UNUSED(_id);
@@ -63,25 +63,25 @@ void ResaltatObjecteSeleccionat::qt_static_metacall(QObject *_o, QMetaObject::Ca
     Q_UNUSED(_a);
 }
 
-QT_INIT_METAOBJECT const QMetaObject ResaltatObjecteSeleccionat::staticMetaObject = { {
+QT_INIT_METAOBJECT const QMetaObject SeleccioObjectesTeclat::staticMetaObject = { {
     &QObject::staticMetaObject,
-    qt_meta_stringdata_ResaltatObjecteSeleccionat.data,
-    qt_meta_data_ResaltatObjecteSeleccionat,
+    qt_meta_stringdata_SeleccioObjectesTeclat.data,
+    qt_meta_data_SeleccioObjectesTeclat,
     qt_static_metacall,
     nullptr,
     nullptr
 } };
 
 
-const QMetaObject *ResaltatObjecteSeleccionat::metaObject() const
+const QMetaObject *SeleccioObjectesTeclat::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *ResaltatObjecteSeleccionat::qt_metacast(const char *_clname)
+void *SeleccioObjectesTeclat::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_ResaltatObjecteSeleccionat.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_SeleccioObjectesTeclat.stringdata0))
         return static_cast<void*>(this);
     if (!strcmp(_clname, "Plugin"))
         return static_cast< Plugin*>(this);
@@ -90,7 +90,7 @@ void *ResaltatObjecteSeleccionat::qt_metacast(const char *_clname)
     return QObject::qt_metacast(_clname);
 }
 
-int ResaltatObjecteSeleccionat::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int SeleccioObjectesTeclat::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QObject::qt_metacall(_c, _id, _a);
     return _id;
@@ -105,13 +105,12 @@ static constexpr unsigned char qt_pluginMetaData[] = {
     // "IID"
     0x02,  0x66,  'P',  'l',  'u',  'g',  'i',  'n', 
     // "className"
-    0x03,  0x78,  0x1a,  'R',  'e',  's',  'a',  'l', 
-    't',  'a',  't',  'O',  'b',  'j',  'e',  'c', 
-    't',  'e',  'S',  'e',  'l',  'e',  'c',  'c', 
-    'i',  'o',  'n',  'a',  't', 
+    0x03,  0x76,  'S',  'e',  'l',  'e',  'c',  'c', 
+    'i',  'o',  'O',  'b',  'j',  'e',  'c',  't', 
+    'e',  's',  'T',  'e',  'c',  'l',  'a',  't', 
     0xff, 
 };
-QT_MOC_EXPORT_PLUGIN(ResaltatObjecteSeleccionat, ResaltatObjecteSeleccionat)
+QT_MOC_EXPORT_PLUGIN(SeleccioObjectesTeclat, SeleccioObjectesTeclat)
 
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

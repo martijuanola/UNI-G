@@ -1,7 +1,20 @@
-#include "resaltatObjecteSeleccionat.h"
+#include "seleccioObjectesTeclat.h"
 #include "glwidget.h"
 
-void ResaltatObjecteSeleccionat::onPluginLoad()
+void SeleccioObjectesTeclat::keyPressEvent(QKeyEvent* e) {
+	if(e->key() >= Qt::Key_0 and e->key() <= Qt::Key_9) {
+		int selected = e->key()-Qt::Key_0;
+		
+		if(selected < (int)scene()->objects().size()) {
+			cout << "Selected = " << selected << endl;
+			scene()->setSelectedObject(selected);
+			glwidget()->update();
+		}
+		else cout << "L'objecte seleccionat no existeix(" << selected << ")" << endl;
+	}
+}
+
+void SeleccioObjectesTeclat::onPluginLoad()
 {
 	QString vs_src = 
 		"#version 330 core\n"
@@ -47,7 +60,7 @@ void ResaltatObjecteSeleccionat::onPluginLoad()
     crearBuffers();
 }
 
-void ResaltatObjecteSeleccionat::crearBuffers() {
+void SeleccioObjectesTeclat::crearBuffers() {
 	GLfloat vertexs[]={
                 0,0,0,
                 0,0,1,
@@ -158,7 +171,7 @@ void ResaltatObjecteSeleccionat::crearBuffers() {
 }
 
 
-void ResaltatObjecteSeleccionat::postFrame()
+void SeleccioObjectesTeclat::postFrame()
 {
 	GLWidget& g = *glwidget();
     g.makeCurrent();
@@ -188,3 +201,4 @@ void ResaltatObjecteSeleccionat::postFrame()
 		program->release();
 	}
 }
+

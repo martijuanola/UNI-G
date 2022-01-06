@@ -21,4 +21,5 @@ SUBDIRS += drawBoundingBox
 
 #ACTION PLUGINS
 SUBDIRS += resaltatObjecteSeleccionat
+SUBDIRS += seleccioObjectesTeclat
 

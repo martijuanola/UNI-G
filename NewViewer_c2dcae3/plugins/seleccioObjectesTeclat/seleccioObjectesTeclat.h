@@ -1,9 +1,9 @@
-#ifndef _RESALTATOBJECTESELECCIONAT_H
-#define _RESALTATOBJECTESELECCIONAT_H
+#ifndef _SELECCIOOBJECTESTECLAT_H
+#define _SELECCIOOBJECTESTECLAT_H
 
 #include "plugin.h" 
 
-class ResaltatObjecteSeleccionat: public QObject, public Plugin
+class SeleccioObjectesTeclat: public QObject, public Plugin
 {
 	Q_OBJECT
 	Q_PLUGIN_METADATA(IID "Plugin") 
@@ -16,7 +16,9 @@ class ResaltatObjecteSeleccionat: public QObject, public Plugin
   private:
 	QOpenGLShaderProgram* program;
     QOpenGLShader *fs, *vs;
+    
     void crearBuffers();
+    void keyPressEvent(QKeyEvent* e); 
     
     GLuint VAOcub;
     GLuint VBOvertexs;
