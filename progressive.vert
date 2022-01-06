@@ -7,12 +7,12 @@ layout (location = 3) in vec2 texCoord;
 
 out vec4 vfrontColor;
 
-uniform mat3 normalMatrix;
 uniform mat4 modelViewProjectionMatrix;
+uniform mat3 normalMatrix;
 
 void main()
 {
     vec3 N = normalize(normalMatrix * normal);
-    vfrontColor = vec4(N.z,N.z,N.z,1.0);
-    gl_Position = modelViewProjectionMatrix * vec4(vertex, 1.0);
+    vfrontColor = vec4(color,1.0);
+    gl_Position = vec4(vertex, 1.0);
 }

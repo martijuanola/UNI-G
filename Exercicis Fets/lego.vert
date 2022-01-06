@@ -13,6 +13,6 @@ uniform mat3 normalMatrix;
 void main()
 {
     vec3 N = normalize(normalMatrix * normal);
-    vfrontColor = vec4(color,1.0) * N.z;
-    gl_Position = modelViewProjectionMatrix * vec4(vertex, 1.0);
+    vfrontColor = vec4(color,1.0);
+    gl_Position = vec4(vertex, 1.0);
 }

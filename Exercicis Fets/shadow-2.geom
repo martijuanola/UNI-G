@@ -18,7 +18,7 @@ float d = 0.01;
 
 void main( void )
 {
-	if(gl_PrimitiveIDIn == 0) {		
+	if(gl_PrimitiveIDIn == 0) {	
 		float R = length(boundingBoxMax-boundingBoxMin)/2;
 		vec3 C = (boundingBoxMax + boundingBoxMin)/2;
 		
