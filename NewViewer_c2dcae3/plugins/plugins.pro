@@ -28,3 +28,4 @@ SUBDIRS += seleccioObjectesMouse
 SUBDIRS += textureSplatting
 SUBDIRS += distort
 SUBDIRS += reflection
+SUBDIRS += reflection2

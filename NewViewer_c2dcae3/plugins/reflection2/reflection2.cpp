@@ -1,19 +1,19 @@
-#include "reflection.h"
+#include "reflection2.h"
 #include <QCoreApplication>
 
 const int IMAGE_WIDTH = 1024;
 const int IMAGE_HEIGHT = IMAGE_WIDTH;
 
-void Reflection::onPluginLoad()
+void Reflection2::onPluginLoad()
 {
     GLWidget & g = *glwidget();
     g.makeCurrent();
     // Carregar shader, compile & link 
     vs = new QOpenGLShader(QOpenGLShader::Vertex, this);
-    vs->compileSourceFile(g.getPluginPath()+"/../reflection/reflection.vert");
+    vs->compileSourceFile(g.getPluginPath()+"/../reflection2/reflection2.vert");
 
     fs = new QOpenGLShader(QOpenGLShader::Fragment, this);
-    fs->compileSourceFile(g.getPluginPath()+"/../reflection/reflection.frag");
+    fs->compileSourceFile(g.getPluginPath()+"/../reflection2/reflection2.frag");
 
     program = new QOpenGLShaderProgram(this);
     program->addShader(vs);
@@ -38,7 +38,7 @@ void Reflection::onPluginLoad()
 }
 
 
-void drawRect(GLWidget &g, float r)
+void drawRect(GLWidget &g, float r, float miny)
 {
     static bool created = false;
     static GLuint VAO_rect;
@@ -60,38 +60,34 @@ void drawRect(GLWidget &g, float r)
                             r,  0, r};
 
         GLuint VBO_coords;
-        g.glGenBuffers(1, &VBO_coords); 
+        g.glGenBuffers(1, &VBO_coords);
         g.glBindBuffer(GL_ARRAY_BUFFER, VBO_coords);
         g.glBufferData(GL_ARRAY_BUFFER, sizeof(coords), coords, GL_STATIC_DRAW);
         g.glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
         g.glEnableVertexAttribArray(0);
         g.glBindVertexArray(0);
         
-        float normal[] = { 0, 1, 0,
-						   0, 1, 0,
-                           0, 1, 0,
-                           0, 1, 0}; 
- 
-        GLuint VBO_normal; 
-        g.glGenBuffers(1, &VBO_normal);
-        g.glBindBuffer(GL_ARRAY_BUFFER, VBO_normal);
-        g.glBufferData(GL_ARRAY_BUFFER, sizeof(normal), normal, GL_STATIC_DRAW);
+        float normals[] = { 0, 1, 0 ,
+                          0, 1, 0 ,
+                          0, 1, 0 ,
+                          0, 1, 0}; 
+
+        GLuint VBO_normals;
+        g.glGenBuffers(1, &VBO_normals);
+        g.glBindBuffer(GL_ARRAY_BUFFER, VBO_normals);
+        g.glBufferData(GL_ARRAY_BUFFER, sizeof(normals), normals, GL_STATIC_DRAW);
         g.glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, 0);
         g.glEnableVertexAttribArray(1);
         g.glBindVertexArray(0);
     }
- 
+
     // 2. Draw
-	g.makeCurrent();
-	
-	
-    
     g.glBindVertexArray (VAO_rect);
     g.glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
-    g.glBindVertexArray(0); 
+    g.glBindVertexArray(0);
 } 
 
-bool Reflection::paintGL()
+bool Reflection2::paintGL()
 {
 	camera()->setZfar(100);
 	
@@ -105,7 +101,7 @@ bool Reflection::paintGL()
 	mirror.translate(0, -scene()->boundingBox().min().y(), 0);
 	QMatrix4x4 MVP = camera()->projectionMatrix() * camera()->viewMatrix();
     program->setUniformValue("modelViewProjectionMatrix", MVP*mirror);
-       
+    
     g.glClearColor(1.0,1.0,1.0,0);
     g.glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
     if (drawPlugin()) drawPlugin()->drawScene();
@@ -121,7 +117,7 @@ bool Reflection::paintGL()
     g.glClearColor(1.0,1.0,1.0,0);
     g.glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
     if (drawPlugin()) drawPlugin()->drawScene();
-      
+     
 	
 	//draw mirror with texture
     program->bind();
@@ -133,10 +129,9 @@ bool Reflection::paintGL()
     QMatrix3x3 NM = camera()->viewMatrix().normalMatrix();
     program->setUniformValue("normalMatrix", NM);  
 	
-	//glEnable (GL_CULL_FACE);
-    drawRect(g,scene()->boundingBox().radius());
-	//glDisable (GL_CULL_FACE);
-    
+	glEnable (GL_CULL_FACE);
+    drawRect(g,scene()->boundingBox().radius(),scene()->boundingBox().min().y());
+	glDisable (GL_CULL_FACE);
     g.defaultProgram()->bind();
     g.glActiveTexture(GL_TEXTURE0);
     g.glBindTexture(GL_TEXTURE_2D, 0);

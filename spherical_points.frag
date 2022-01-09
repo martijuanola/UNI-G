@@ -1,9 +1,12 @@
 #version 330 core
 
-in vec4 gfrontColor;
+in vec2 textCoord;
+
 out vec4 fragColor;
+
+uniform sampler2D colorMap;
 
 void main()
 {
-    fragColor = gfrontColor;
+    fragColor = texture(colorMap,textCoord);
 }

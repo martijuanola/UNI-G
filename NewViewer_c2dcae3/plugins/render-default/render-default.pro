@@ -1,3 +1,2 @@
-TARGET     = $$qtLibraryTarget(renderdefault)
-
+TARGET     = $$qtLibraryTarget(render-default1)
 include(../common.pro)
