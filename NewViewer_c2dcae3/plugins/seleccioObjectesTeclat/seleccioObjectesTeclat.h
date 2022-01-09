@@ -13,13 +13,14 @@ class SeleccioObjectesTeclat: public QObject, public Plugin
 	 void onPluginLoad();
 	 void postFrame();
 	 
+	 void keyPressEvent(QKeyEvent* e); 
+	 
   private:
 	QOpenGLShaderProgram* program;
     QOpenGLShader *fs, *vs;
     
     void crearBuffers();
-    void keyPressEvent(QKeyEvent* e); 
-    
+   
     GLuint VAOcub;
     GLuint VBOvertexs;
     GLuint VBOcolors;

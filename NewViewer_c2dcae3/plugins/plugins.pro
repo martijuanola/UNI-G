@@ -22,4 +22,9 @@ SUBDIRS += drawBoundingBox
 #ACTION PLUGINS
 SUBDIRS += resaltatObjecteSeleccionat
 SUBDIRS += seleccioObjectesTeclat
+SUBDIRS += seleccioObjectesMouse
 
+#RENDER PLUGINS
+SUBDIRS += textureSplatting
+SUBDIRS += distort
+SUBDIRS += reflection

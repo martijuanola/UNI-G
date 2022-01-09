@@ -1,4 +1,2 @@
-TARGET     = $$qtLibraryTarget(shadowmap)  # Nom del plugin 
-
+TARGET     = $$qtLibraryTarget(shadowmap4)
 include(../common.pro)
-

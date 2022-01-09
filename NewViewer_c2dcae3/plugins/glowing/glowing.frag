@@ -14,21 +14,21 @@ void main()
 
     vec4 sum=vec4(0.0);
     float count = 0.0;
-    for (int i=-W; i<W; ++i)
-    for (int j=-W; j<W; ++j)
-    {
-        vec4 tmp = texture(colorMap, st+vec2(a*float(i), a*float(j)));
-        if (length(tmp.rgb)>0.0) // assumes background is black 
-        {
-            float w = max(0.0, float(W) - length(vec2(float(i), float(j))));
-            count += w;
-            sum += w*tmp;
-        } 
-    }
+    for (int i=-W; i<W; ++i) {
+		for (int j=-W; j<W; ++j)
+		{
+			vec4 tmp = texture(colorMap, st+vec2(a*float(i), a*float(j)));
+			if (length(tmp.rgb)>0.0) // assumes background is black 
+			{
+				float w = max(0.0, float(W) - length(vec2(float(i), float(j))));
+				count += w;
+				sum += w*tmp;
+			} 
+		}
+	}
     sum /= count;
     sum = pow(sum, vec4(5.0));
         
-    fragColor = mix(texture2D(colorMap, st), sum, 0.8);
-    
+    fragColor = mix(texture2D(colorMap, st), sum, 0.8); 
 }
 
